@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.service.mapper.BlogMapper">
+    <sql id="blog">
+    id,title,blog_type,author,views,publish_time,comment,support,focus,article
+    </sql>
+
+    <insert id="addBlog">
+        insert into blog_article(title,blog_type,author,views,publish_time,comment,support,focus,article,active_status)
+            values(#{blog.title},#{blog.blogType},#{blog.author},#{blog.views},#{blog.publishTime},#{blog.commnet},#{blog.support},#{blog.focus},#{blog.article})
+    </insert>
+    <update id="deleteBlogById">
+        update blog_article set activeStatus = "1" where id = #{id}
+    </update>
+    <update id="updateBlogById">
+        update blog_article b
+        set b.title = #{blog.title},b.blog_type = #{blog.blogType},b.author = #{blog.author},b.views = #{blog.views},b.publish_time = #{blog.publishTime},b.comment = #{blog.commnet},b.support = #{blog.support}
+        ,b.focus = #{blog.focus},b.article = #{blog.article}
+        where id = #{blog.id}
+    </update>
+    <select id="findBlogList" resultType="org.example.service.domain.Blog">
+        select * from blog_article b where b.active_status = "0"
+    </select>
+    <select id="findBlogListByPage" resultType="org.example.service.domain.Blog">
+        select * from blog_article b where b.active_status = "0"
+        limit #{startNo},2
+    </select>
+
+</mapper>
