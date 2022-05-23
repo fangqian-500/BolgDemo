@@ -4,11 +4,11 @@ package org.example.service.domain;
 public class OssEntity {
     private static final String ENDPOINT = "oss-cn-hangzhou.aliyuncs.com";
 
-    private static final String ACCESS_KEYID = "LTAI4G7qJNTvA6uZqm2Vfn1E";
+    private static final String ACCESS_KEYID = "your access_keyId";
 
-    private static final String ACCESS_SECRET = "pZE76IOwN7Gznm2TtmjXwCXJ6qqPi8";
+    private static final String ACCESS_SECRET = "your access_secret";
 
-    private static final String BUCKEY_NAME = "blog7.oss-cn-hangzhou.aliyuncs.com";
+    private static final String BUCKEY_NAME = "your bucket_name";
 
     public String getEndpoint(){
         return OssEntity.ENDPOINT;
